@@ -1,6 +1,7 @@
 def application(environ, start_response):
-body = b'Hello World:\n'
-status = '200 OK'
-headers = [('Content-type','text/plain')]
-start_response(status, headers)
-return[body]
+    status = '200 OK'
+    output = 'Hello World!\n'
+    response_headers = [('Content-type', 'text/plain'),
+                        ('Content-Length', str(len(output)))]
+    start_response(status, response_headers)
+    return [output]
